@@ -421,13 +421,13 @@ class LunaTokis(nn.Module):
 
         ### load raft
         self.flow_predictor = RAFT(args)
-        ckpt = torch.load("/home/abcd233746pc/0801/raft_smooth_0728_iter12.pth")['model']
-        keys = list(ckpt.keys())
-        for key in keys:
-            tmp = key.replace("flow_predictor.", "")
-            ckpt[tmp] = ckpt[key]
-            del ckpt[key]
-        self.flow_predictor.load_state_dict(ckpt, strict=True)
+        # ckpt = torch.load("/home/abcd233746pc/0801/raft_smooth_0728_iter12.pth")['model']
+        # keys = list(ckpt.keys())
+        # for key in keys:
+        #     tmp = key.replace("flow_predictor.", "")
+        #     ckpt[tmp] = ckpt[key]
+        #     del ckpt[key]
+        # self.flow_predictor.load_state_dict(ckpt, strict=True)
 
         ### warper
         self.fwarp = Softsplat()

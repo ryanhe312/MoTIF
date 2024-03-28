@@ -9,7 +9,7 @@ import torch.nn.functional as F
 import models.modules.module_util as mutil
 from models.modules.convlstm import ConvLSTM, ConvLSTMCell
 try:
-    from models.modules.DCNv2.dcn_v2 import DCN_sep
+    from models.modules.DCNv2_latest.dcn_v2 import DCN_sep
 except ImportError:
     raise ImportError('Failed to import DCNv2 module.')
 from pdb import set_trace as bp
