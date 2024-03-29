@@ -52,6 +52,19 @@ def single_forward(model, imgs_in, space_scale, time_scale):
             model_output.append(output)
         model_output = torch.stack(model_output, 0)
         print(model_output.shape)'''
+
+        # import torch.utils.benchmark as benchmark
+        # gpu_timer = benchmark.Timer(
+        #     stmt='model(imgs_in, None, time_Tensors, space_scale, use_GT=False)',
+        #     label="GPU",
+        #     globals={"model": model, "imgs_in": imgs_in, "time_Tensors": time_Tensors, "space_scale": space_scale}
+        # )
+        # print(gpu_timer.timeit(100))
+
+        # import thop
+        # profile = thop.profile(model, inputs=(imgs_in, None, time_Tensors, space_scale, 0, 0, False), verbose=True)
+        # print(thop.clever_format(profile, "%.4f"))
+        # quit()
         
         model_output = model(imgs_in, None, time_Tensors, space_scale, use_GT=False)[0]
         return model_output
